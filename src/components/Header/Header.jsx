@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as S from "./Header.style";
 import logo from "../../assets/seathustler.png";
 import { Link } from "react-router-dom";
-import { Burger, BurgerMenu, Button } from "..";
+import { Burger, BurgerMenu, Button } from "../../components";
 
 function Header() {
   const [open, setOpen] = useState(false);

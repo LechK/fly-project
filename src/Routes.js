@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header, Loading, Footer } from "./components/";
 
 const LazyHome = lazy(() => import("./pages/Home/Home"));
-const AboutLazy = lazy(() => import("./pages/About/About"));
 
 function Routes() {
   return (
@@ -12,7 +11,6 @@ function Routes() {
       <Suspense fallback={<Loading />}>
         <Switch>
           <Route exact path="/" component={LazyHome} />
-          <Route exact path="/about" component={AboutLazy} />
         </Switch>
       </Suspense>
       <Footer
