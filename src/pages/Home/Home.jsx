@@ -7,14 +7,22 @@ import {
   Radio,
   RCslider,
 } from "../../components";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
 import * as S from "./Home.style";
 
 function Home() {
+  const [email, setEmail] = useState();
+
   const [number, setNumber] = useState(1);
   const [people, setPeople] = useState(1);
   const [option, setOption] = useState("no");
 
   const [notification, setNotification] = useState();
+  const [error, setError] = useState();
+
+  //mailchimp url
+  const url =
+    "https://inbox.us7.list-manage.com/subscribe/post?u=6de907c571aa07ed87ce5deec&amp;id=00f71256a5";
 
   //function to calculate savings, on option value, if they are clients, or they are not
   function calculate() {
@@ -27,26 +35,58 @@ function Home() {
 
   return (
     <>
-      <Notification color="success" handleChange={() => setNotification(false)}>
-        &#10003; Your Airport Confirmed!
-      </Notification>
+      {notification && (
+        <Notification
+          color="success"
+          handleChange={() => setNotification(false)}
+        >
+          &#10003; {notification}
+        </Notification>
+      )}
+      {error && (
+        <Notification color="error" handleChange={() => setNotification(false)}>
+          &#10003; {error}
+        </Notification>
+      )}
+
+      {/* SUBSCRIBE SECTION */}
+
       <S.SubscribeSection>
         <S.Heading>Grab Flight Deals While They're Hot</S.Heading>
+        {/* mailchim post */}
+        <MailchimpSubscribe
+          url={url}
+          render={({ subscribe, status }) => {
+            if (status === "success") {
+              setNotification("Succesfully subscribed!");
+            } else if (status === "error") {
+              setError("This Email Already Subscribed!");
+            }
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
+            return (
+              <div>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    subscribe({ EMAIL: email });
+                  }}
+                >
+                  <Input
+                    type="email"
+                    placeholder="Enter Your E-Mail"
+                    handleChange={(e) => setEmail(e.target.value)}
+                  />
+                  <Button color="primary">SUBSCRIBE FOR BEST DEALS</Button>
+                </form>
+              </div>
+            );
           }}
-        >
-          <Input
-            type="email"
-            placeholder="Enter Your E-Mail"
-            handleChange={(e) => console.log(e.target.value)}
-          />
-          <Button color="primary">SUBSCRIBE FOR BEST DEALS</Button>
-        </form>
+        />
         <S.Wave />
       </S.SubscribeSection>
+
+      {/* CALCULATE SECTION */}
+
       <Section>
         <S.H2>Calculate Your Savings!</S.H2>
         <S.CalculationBox>

@@ -10,6 +10,7 @@
     "rc-slider": "^9.7.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-mailchimp-subscribe": "^2.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "styled-components": "^5.2.0"
