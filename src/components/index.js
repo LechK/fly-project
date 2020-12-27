@@ -7,3 +7,4 @@ export { default as BurgerMenu } from "./BurgerMenu/BurgerMenu";
 export { default as Footer } from "./Footer/Footer";
 export { default as Input } from "./Input/Input";
 export { default as Notification } from "./Notification/Notification";
+export { default as Radio } from "./Radio/Radio";
