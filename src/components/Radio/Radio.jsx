@@ -15,7 +15,7 @@ function Radio({ options, handleChange }) {
                 onChange={handleChange}
                 value={option.value}
               />
-              <S.Label htmlFor={option.name}>{option.text}</S.Label>
+              <S.Label htmlFor={option.id}>{option.text}</S.Label>
             </div>
           );
         })}
