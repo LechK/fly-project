@@ -17,9 +17,6 @@ function Home() {
   const [people, setPeople] = useState(1);
   const [option, setOption] = useState("no");
 
-  const [notification, setNotification] = useState();
-  const [error, setError] = useState();
-
   //mailchimp url
   const url =
     "https://inbox.us7.list-manage.com/subscribe/post?u=6de907c571aa07ed87ce5deec&amp;id=00f71256a5";
@@ -35,20 +32,6 @@ function Home() {
 
   return (
     <>
-      {notification && (
-        <Notification
-          color="success"
-          handleChange={() => setNotification(false)}
-        >
-          &#10003; {notification}
-        </Notification>
-      )}
-      {error && (
-        <Notification color="error" handleChange={() => setNotification(false)}>
-          &#10003; {error}
-        </Notification>
-      )}
-
       {/* SUBSCRIBE SECTION */}
 
       <S.SubscribeSection>
@@ -56,13 +39,50 @@ function Home() {
         {/* mailchim post */}
         <MailchimpSubscribe
           url={url}
-          render={({ subscribe, status }) => {
+          render={({ subscribe, status, message }) => {
             if (status === "success") {
-              setNotification("Succesfully subscribed!");
+              return (
+                <div>
+                  <Notification color="success">
+                    &#10003; Thanks for Subscribe!
+                  </Notification>
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      subscribe({ EMAIL: email });
+                    }}
+                  >
+                    <Input
+                      type="email"
+                      placeholder="Enter Your E-Mail"
+                      handleChange={(e) => setEmail(e.target.value)}
+                    />
+                    <Button color="primary">SUBSCRIBE FOR BEST DEALS</Button>
+                  </form>
+                </div>
+              );
             } else if (status === "error") {
-              setError("This Email Already Subscribed!");
+              return (
+                <div>
+                  <Notification color="error">
+                    {message.split(" <")[0]}
+                  </Notification>
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      subscribe({ EMAIL: email });
+                    }}
+                  >
+                    <Input
+                      type="email"
+                      placeholder="Enter Your E-Mail"
+                      handleChange={(e) => setEmail(e.target.value)}
+                    />
+                    <Button color="primary">SUBSCRIBE FOR BEST DEALS</Button>
+                  </form>
+                </div>
+              );
             }
-
             return (
               <div>
                 <form
