@@ -98,8 +98,20 @@ function Home() {
             max={12}
             value={number}
             onChange={(e) => setNumber(e)}
-            minusClick={() => setNumber(number - 1)}
-            plusClick={() => setNumber(number + 1)}
+            minusClick={() => {
+              if (number === 0) {
+                setNumber(number);
+              } else {
+                setNumber(number - 1);
+              }
+            }}
+            plusClick={() => {
+              if (number === 12) {
+                setNumber(number);
+              } else {
+                setNumber(number + 1);
+              }
+            }}
           />
           <S.CalcHeading>
             How many people will be travelling (including you)?
@@ -109,8 +121,20 @@ function Home() {
             max={9}
             value={people}
             onChange={(e) => setPeople(e)}
-            minusClick={() => setPeople(people - 1)}
-            plusClick={() => setPeople(people + 1)}
+            minusClick={() => {
+              if (people === 1) {
+                setPeople(people);
+              } else {
+                setPeople(people - 1);
+              }
+            }}
+            plusClick={() => {
+              if (people === 9) {
+                setPeople(people);
+              } else {
+                setPeople(people + 1);
+              }
+            }}
           />
           <S.CalcHeading>Are you a member of SeatHustler.com?</S.CalcHeading>
           <div>
