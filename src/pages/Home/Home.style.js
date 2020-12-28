@@ -42,7 +42,7 @@ export const Wave = styled.div`
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 310px;
+  height: 120px;
   position: absolute;
   bottom: 0;
   @media (min-width: ${({ theme }) => theme.mobile}) {
