@@ -18,6 +18,7 @@ export const SubscribeSection = styled.div`
   text-align: center;
   margin-top: 0;
   height: 70vh;
+  position: relative;
   && Input {
     margin-bottom: 1.5em;
   }
@@ -41,9 +42,9 @@ export const Wave = styled.div`
   background-size: cover;
   background-position: center;
   width: 100%;
-  margin-top: 30px;
-  margin-bottom: -5px;
   height: 310px;
+  position: absolute;
+  bottom: 0;
   @media (min-width: ${({ theme }) => theme.mobile}) {
   }
 `;

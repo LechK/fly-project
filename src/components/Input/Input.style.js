@@ -17,7 +17,6 @@ export const Input = styled.input`
   border-radius: 5px;
   @media (min-width: 580px) {
     width: 500px;
-    display: inline-block;
-    margin: 0 35em;
+    display: flex;
   }
 `;

@@ -13,8 +13,10 @@ export const StyledMenu = styled.nav`
     background: ${({ theme }) => theme.white};
     border: 1px solid ${({ theme }) => theme.lightGrey};
     position: fixed;
+    padding-top: 1em;
     top: 0;
     left: 0;
+    z-index: 3;
   }
 `;
 export const StyledLink = styled(Link)`
