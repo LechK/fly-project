@@ -17,10 +17,13 @@ export const SubscribeSection = styled.div`
   background-size: cover;
   text-align: center;
   margin-top: 0;
-  height: 70vh;
+  min-height: 90vh;
   position: relative;
   && Input {
     margin-bottom: 1.5em;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    min-height: 70vh;
   }
 `;
 
@@ -45,7 +48,8 @@ export const Wave = styled.div`
   height: 120px;
   position: absolute;
   bottom: 0;
-  @media (min-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    height: 60px;
   }
 `;
 
@@ -77,6 +81,10 @@ export const CalcHeading = styled.h5`
   color: ${({ theme }) => theme.darkOrange};
   font-weight: lighter;
   font-size: large;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    height: 60px;
+    font-weight: bolder;
+  }
 `;
 
 export const Line = styled.div`
