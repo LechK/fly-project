@@ -15,6 +15,7 @@ export const StyledBurger = styled.button`
 
     div {
       width: 1.5rem;
+      border: none;
       height: 0.1rem;
       background: ${({ theme, open }) =>
         open ? theme.textGrey : theme.textGrey};

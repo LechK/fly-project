@@ -7,10 +7,14 @@ export const Header = styled.header`
   border: 1px solid ${({ theme }) => theme.lightGrey};
   padding: 1em;
   background-color: ${({ theme }) => theme.white};
+  @media (min-width: 580px) {
+    width: 900px;
+    margin: 0 auto;
+    border: none;
+  }
 `;
 
 export const Logo = styled.img`
   max-height: 30px;
-
   max-width: 100%;
 `;
