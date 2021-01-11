@@ -102,7 +102,6 @@ function Home() {
             );
           }}
         />
-        <S.Wave />
       </S.SubscribeSection>
 
       {/* CALCULATE SECTION */}

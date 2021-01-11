@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import pic from "../../assets/picture.jpg";
-import wave from "../../assets/wave.svg";
 
 export const SubscribeSection = styled.div`
   @media (min-width: ${({ theme }) => theme.mobile}) {
@@ -17,7 +16,7 @@ export const SubscribeSection = styled.div`
   background-size: cover;
   text-align: center;
   margin-top: 0;
-  min-height: 70vh;
+  min-height: 540px;
   position: relative;
   && Input {
     margin-bottom: 1.5em;
@@ -36,20 +35,6 @@ export const Heading = styled.h1`
   @media (min-width: 410px) {
     width: 400px;
     margin: 0 auto;
-  }
-`;
-
-export const Wave = styled.div`
-  background-image: url(${wave});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 120px;
-  position: absolute;
-  bottom: 0;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    height: 60px;
   }
 `;
 
