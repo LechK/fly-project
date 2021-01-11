@@ -7,8 +7,8 @@ export const Header = styled.header`
   border: 1px solid ${({ theme }) => theme.lightGrey};
   padding: 1em;
   background-color: ${({ theme }) => theme.white};
-  @media (min-width: 580px) {
-    width: 900px;
+  @media (min-width: 760px) {
+    max-width: 900px;
     margin: 0 auto;
     border: none;
   }

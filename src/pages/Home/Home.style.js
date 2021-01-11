@@ -17,13 +17,13 @@ export const SubscribeSection = styled.div`
   background-size: cover;
   text-align: center;
   margin-top: 0;
-  min-height: 90vh;
+  min-height: 70vh;
   position: relative;
   && Input {
     margin-bottom: 1.5em;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    min-height: 70vh;
+    max-height: 30vh;
   }
 `;
 
@@ -62,7 +62,6 @@ export const H2 = styled.h2`
 
 export const CalculationBox = styled.div`
   background-color: ${({ theme }) => theme.calcBox};
-  margin-bottom: 10em;
   border-radius: 5px;
   padding: 0 1.2em;
   border: 1px solid ${({ theme }) => theme.lightBlue};
